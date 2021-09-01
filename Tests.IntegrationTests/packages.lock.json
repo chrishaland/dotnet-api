@@ -60,6 +60,12 @@
         "resolved": "4.0.0",
         "contentHash": "5gCkytgQWL93M5s9Rnl4CfSUhn95VsuMVLYjmZe8K7dNRF7kzrBMPsBTyLNCga5qLW7RM/o591J+HVrV1QMaVQ=="
       },
+      "NunitXml.TestLogger": {
+        "type": "Direct",
+        "requested": "[3.0.107, )",
+        "resolved": "3.0.107",
+        "contentHash": "KUWil9sEnA7Rgv41FKTWedvL8UcpmBhbKI9pD9YxFUo5rv4mdEuq14Ms/i7+OU2hC1Zyg8x9Ik1mn/byQ2o9SQ=="
+      },
       "Serilog.AspNetCore": {
         "type": "Direct",
         "requested": "[4.1.0, )",
