@@ -9,14 +9,14 @@ stages:
 - stage: build
   displayName: Build
   jobs:
-  - template: .azure-pipeline/.dotnet-build.yml
+  - template: .azure-pipeline-templates/.dotnet-build.yml
 
 - stage: test
   displayName: Test
   jobs:
-  - template: .azure-pipeline/.dotnet-test.yml
+  - template: .azure-pipeline-templates/.dotnet-test.yml
     parameters:
       project: Tests.UnitTests
-  - template: .azure-pipeline/.dotnet-test.yml
+  - template: .azure-pipeline-templates/.dotnet-test.yml
     parameters:
       project: Tests.IntegrationTests
