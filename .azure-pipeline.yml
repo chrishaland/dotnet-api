@@ -1,0 +1,22 @@
+name: Build pipeline
+trigger:
+  branches:
+    include:
+    - main
+
+stages:
+
+- stage: build
+  displayName: Build
+  jobs:
+  - template: .azure-pipeline/.dotnet-build.yml
+
+- stage: test
+  displayName: Test
+  jobs:
+  - template: .azure-pipeline/.dotnet-test.yml
+    parameters:
+      project: Tests.UnitTests
+  - template: .azure-pipeline/.dotnet-test.yml
+    parameters:
+      project: Tests.IntegrationTests

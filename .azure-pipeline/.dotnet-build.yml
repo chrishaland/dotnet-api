@@ -1,0 +1,38 @@
+parameters:
+- name: sdk
+  type: string
+  default: '6.0'
+- name: framework
+  type: string
+  default: 'net6.0'
+- name: configuration
+  type: string
+  default: 'Release'
+
+jobs:
+- job: build_cli
+  pool:
+    vmImage: ubuntu-latest
+  displayName: CLI build
+  steps:
+  - task: UseDotNet@2
+    inputs:
+      version: ${{ parameters.sdk }}.x
+      includePreviewVersions: true
+  - template: .dotnet-restore.yml
+  - task: DotNetCoreCLI@2
+    displayName: Build
+    inputs:
+      command: build
+      projects: '*.sln'
+      packagesDirectory: packages
+      arguments: '--configuration ${{ parameters.configuration }} --framework ${{ parameters.framework }} --no-restore'
+- job: build_container
+  pool:
+    vmImage: ubuntu-latest
+  displayName: Container build
+  steps:
+  - task: Docker@2
+    displayName: Build
+    command: build
+    Dockerfile: Host/Dockerfile

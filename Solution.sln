@@ -1,0 +1,68 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31612.314
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Host", "Host\Host.csproj", "{F4620368-AD90-4BB4-B7A2-3A780CD9145F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service", "Service\Service.csproj", "{92811B0B-802A-4732-8CA8-FD622E1686FB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "Repository\Repository.csproj", "{D405E3D0-684B-4050-B0FD-6BC9E0734A76}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests.IntegrationTests", "Tests.IntegrationTests\Tests.IntegrationTests.csproj", "{C0BDCC44-66E4-4D2E-BC7E-8936DE40D381}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests.UnitTests", "Tests.UnitTests\Tests.UnitTests.csproj", "{1B9E22A5-5B04-4D56-A1D2-8E1FC97A91D0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BCAFD9EB-3578-4105-A651-6EFD90B77B82}"
+	ProjectSection(SolutionItems) = preProject
+		.azure-pipeline.yml = .azure-pipeline.yml
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".azure-pipeline", ".azure-pipeline", "{906AAF84-5778-4EF9-A251-52E526AB6065}"
+	ProjectSection(SolutionItems) = preProject
+		.azure-pipeline\.dotnet-build.yml = .azure-pipeline\.dotnet-build.yml
+		.azure-pipeline\.dotnet-restore.yml = .azure-pipeline\.dotnet-restore.yml
+		.azure-pipeline\.dotnet-test.yml = .azure-pipeline\.dotnet-test.yml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4620368-AD90-4BB4-B7A2-3A780CD9145F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4620368-AD90-4BB4-B7A2-3A780CD9145F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4620368-AD90-4BB4-B7A2-3A780CD9145F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4620368-AD90-4BB4-B7A2-3A780CD9145F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92811B0B-802A-4732-8CA8-FD622E1686FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92811B0B-802A-4732-8CA8-FD622E1686FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92811B0B-802A-4732-8CA8-FD622E1686FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92811B0B-802A-4732-8CA8-FD622E1686FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D405E3D0-684B-4050-B0FD-6BC9E0734A76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D405E3D0-684B-4050-B0FD-6BC9E0734A76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D405E3D0-684B-4050-B0FD-6BC9E0734A76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D405E3D0-684B-4050-B0FD-6BC9E0734A76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0BDCC44-66E4-4D2E-BC7E-8936DE40D381}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0BDCC44-66E4-4D2E-BC7E-8936DE40D381}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0BDCC44-66E4-4D2E-BC7E-8936DE40D381}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0BDCC44-66E4-4D2E-BC7E-8936DE40D381}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B9E22A5-5B04-4D56-A1D2-8E1FC97A91D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B9E22A5-5B04-4D56-A1D2-8E1FC97A91D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B9E22A5-5B04-4D56-A1D2-8E1FC97A91D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B9E22A5-5B04-4D56-A1D2-8E1FC97A91D0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{906AAF84-5778-4EF9-A251-52E526AB6065} = {BCAFD9EB-3578-4105-A651-6EFD90B77B82}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0C5F7618-C977-4572-BE9A-33AFDF4F3AD8}
+	EndGlobalSection
+EndGlobal
