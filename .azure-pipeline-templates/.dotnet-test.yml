@@ -13,7 +13,7 @@ parameters:
   default: '.'
   
 jobs: 
-  - job: tests_${{ parameters.project }}
+  - job: tests_${{ replace(parameters['project'], '.', '_') }}
     pool:
       vmImage: ubuntu-latest
     displayName: ${{ parameters.project }}

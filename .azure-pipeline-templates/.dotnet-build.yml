@@ -36,4 +36,5 @@ jobs:
     displayName: Build
     inputs:
       command: build
+      buildContext: '.'
       Dockerfile: Host/Dockerfile
