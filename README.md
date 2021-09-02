@@ -1,5 +1,7 @@
 # dotnet-api
 
+[![Build Status](https://chrishaland.visualstudio.com/dotnet-api/_apis/build/status/Build%20pipeline?branchName=main)](https://chrishaland.visualstudio.com/dotnet-api/_build/latest?definitionId=5&branchName=main)
+
 ## Configuration
 
 ### Configuring OpenId Connect Client
