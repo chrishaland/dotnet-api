@@ -1,3 +1,8 @@
+parameters:
+- name: sdk
+  type: string
+  default: '6.0'
+
 steps:
 - task: Cache@2
   inputs:
@@ -6,6 +11,10 @@ steps:
       nuget | "$(Agent.OS)"
     path: packages
   displayName: NuGet packages cache
+- task: UseDotNet@2
+  inputs:
+    version: ${{ parameters.sdk }}.x
+    includePreviewVersions: true
 - task: DotNetCoreCLI@2
   displayName: Restore
   inputs:

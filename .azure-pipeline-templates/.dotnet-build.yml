@@ -15,11 +15,11 @@ jobs:
     vmImage: ubuntu-latest
   displayName: CLI build
   steps:
+  - template: .dotnet-restore.yml
   - task: UseDotNet@2
     inputs:
       version: ${{ parameters.sdk }}.x
       includePreviewVersions: true
-  - template: .dotnet-restore.yml
   - task: DotNetCoreCLI@2
     displayName: Build
     inputs:
