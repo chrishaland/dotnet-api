@@ -3,6 +3,9 @@ FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS vs-containerfastmode
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS builder
 WORKDIR /src
+COPY ["Host/packages.lock.json", "Host/"]
+COPY ["Service/packages.lock.json", "Service/"]
+COPY ["Repository/packages.lock.json", "Repository/"]
 COPY ["Host/Host.csproj", "Host/"]
 COPY ["Service/Service.csproj", "Service/"]
 COPY ["Repository/Repository.csproj", "Repository/"]
