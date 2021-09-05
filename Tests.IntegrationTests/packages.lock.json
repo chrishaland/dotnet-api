@@ -83,17 +83,6 @@
           "Serilog.Sinks.File": "4.1.0"
         }
       },
-      "Serilog.Sinks.NUnit": {
-        "type": "Direct",
-        "requested": "[1.0.3, )",
-        "resolved": "1.0.3",
-        "contentHash": "NufJ17KzvXKaDubTEJ8zSGbhQ0+uRJ05q8B9sjORqCRVt+692u8svNMP7Miu1v7+SIPjPZybmkRoSpppgjaTfA==",
-        "dependencies": {
-          "NETStandard.Library": "1.6.1",
-          "NUnit": "3.6.0",
-          "Serilog": "2.0.0"
-        }
-      },
       "Haland.DotNetTrace": {
         "type": "Transitive",
         "resolved": "1.0.2-rc1",

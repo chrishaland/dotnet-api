@@ -42,7 +42,7 @@ public class OneTimeTestServerSetup
             .Build()
         )
         .UseSerilog(new LoggerConfiguration()
-            .WriteTo.NUnitOutput()
+            .WriteTo.Console()
             .CreateLogger()
         )
         .UseStartup<Host.Startup>()
