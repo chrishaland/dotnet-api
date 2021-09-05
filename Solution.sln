@@ -28,8 +28,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Azure Pipeline", "Azure Pip
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "templates", "templates", "{CC63A721-149A-423D-AAAE-7CC45FF149D9}"
 	ProjectSection(SolutionItems) = preProject
-		.azure-pipeline-templates\.dotnet-build.yml = .azure-pipeline-templates\.dotnet-build.yml
-		.azure-pipeline-templates\.dotnet-restore.yml = .azure-pipeline-templates\.dotnet-restore.yml
 		.azure-pipeline-templates\.dotnet-test.yml = .azure-pipeline-templates\.dotnet-test.yml
 	EndProjectSection
 EndProject
