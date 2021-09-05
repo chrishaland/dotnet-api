@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Mime;
 
-namespace Service
+namespace Libraries.CQRS
 {
     [Authorize]
     [ApiController]

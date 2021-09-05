@@ -5,9 +5,11 @@ FROM mcr.microsoft.com/dotnet/sdk:6.0 AS builder
 WORKDIR /src
 COPY ["Host/packages.lock.json", "Host/"]
 COPY ["Service/packages.lock.json", "Service/"]
+COPY ["Libraries/packages.lock.json", "Libraries/"]
 COPY ["Repository/packages.lock.json", "Repository/"]
 COPY ["Host/Host.csproj", "Host/"]
 COPY ["Service/Service.csproj", "Service/"]
+COPY ["Libraries/Libraries.csproj", "Libraries/"]
 COPY ["Repository/Repository.csproj", "Repository/"]
 RUN dotnet restore "Host/Host.csproj" \
 	--locked-mode
