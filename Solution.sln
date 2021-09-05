@@ -31,6 +31,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "templates", "templates", "{
 		.azure-pipeline-templates\.dotnet-test.yml = .azure-pipeline-templates\.dotnet-test.yml
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Libraries", "Libraries\Libraries.csproj", "{C3E3A026-C8FB-4A4C-AA78-F2EB8F670A77}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{1B9E22A5-5B04-4D56-A1D2-8E1FC97A91D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B9E22A5-5B04-4D56-A1D2-8E1FC97A91D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B9E22A5-5B04-4D56-A1D2-8E1FC97A91D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3E3A026-C8FB-4A4C-AA78-F2EB8F670A77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3E3A026-C8FB-4A4C-AA78-F2EB8F670A77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3E3A026-C8FB-4A4C-AA78-F2EB8F670A77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3E3A026-C8FB-4A4C-AA78-F2EB8F670A77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
