@@ -48,4 +48,9 @@ dotnet user-secrets set "oidc:roles:user" "<user_role_id>" --project Host
 dotnet user-secrets set "oidc:roles:admin" "<admin_role_id>" --project Host
 dotnet user-secrets set "oidc:claim_types:name" "<name_claim_type>" --project Host
 dotnet user-secrets set "oidc:claim_types:role" "<role_claim_type>" --project Host
-```
+
+# Message Queue using AMQP
+dotnet user-secrets set "amqp:uri" "failover:amqp://<address>" --project Host
+dotnet user-secrets set "amqp:username" "<username>" --project Host
+dotnet user-secrets set "amqp:password" "<password>" --project Host
+``` 

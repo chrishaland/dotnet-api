@@ -1,4 +1,6 @@
 ﻿using Haland.DotNetTrace;
+using Libraries.AMQP;
+using Service;
 
 namespace Host
 {
@@ -9,11 +11,15 @@ namespace Host
             services.AddDatabase(Configuration);
             services.AddOpenApiDocumentation();
 
+            services.AddAmqpService(Configuration)
+                .AddAmqpSubscriber<TestSubscriber, TestMessage>()
+            ;
+
             services.AddAuthorizationAndPolicies(Configuration);
             services.AddOpenIdConnectAuthentication(Configuration);
 
             services.AddTracing();
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson();
         }
     }
 }

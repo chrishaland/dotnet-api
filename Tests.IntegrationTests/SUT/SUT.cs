@@ -1,6 +1,6 @@
-﻿using Repository;
+﻿using Newtonsoft.Json;
+using Repository;
 using System.Text;
-using System.Text.Json;
 
 namespace Tests.IntegrationTests
 {
@@ -15,8 +15,7 @@ namespace Tests.IntegrationTests
             T? content = null;
             if (!string.IsNullOrEmpty(contentString))
             {
-                var contentStream = new MemoryStream(Encoding.UTF8.GetBytes(contentString));
-                content = await JsonSerializer.DeserializeAsync<T>(contentStream, SerializerOptions);
+                content = JsonConvert.DeserializeObject<T>(contentString);
             }
 
             return (response, content);
@@ -26,7 +25,7 @@ namespace Tests.IntegrationTests
         {
             if (data != null)
             {
-                var json = JsonSerializer.Serialize(data, SerializerOptions);
+                var json = JsonConvert.SerializeObject(data);
                 request.Content = new StringContent(json, Encoding.UTF8, "application/json");
             }
 
@@ -35,7 +34,5 @@ namespace Tests.IntegrationTests
 
             return (response, contentString);
         }
-
-        private static JsonSerializerOptions SerializerOptions => new(JsonSerializerDefaults.Web);
     }
 }
