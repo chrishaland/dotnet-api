@@ -1,7 +1,7 @@
 #See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS vs-containerfastmode
+FROM mcr.microsoft.com/dotnet/runtime:6.0 AS vs-containerfastmode
 
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS builder
+FROM mcr.microsoft.com/dotnet/sdk:6.0.100-preview.7 AS builder
 WORKDIR /src
 COPY ["Host/packages.lock.json", "Host/"]
 COPY ["Service/packages.lock.json", "Service/"]
@@ -26,7 +26,7 @@ RUN dotnet publish "Host/Host.csproj" \
 	--output /publish \
 	--no-restore
 
-FROM mcr.microsoft.com/dotnet/aspnet:6.0
+FROM mcr.microsoft.com/dotnet/runtime:6.0
 ENV ASPNETCORE_URLS="http://0.0.0.0:8080"
 EXPOSE 8080
 WORKDIR /app
