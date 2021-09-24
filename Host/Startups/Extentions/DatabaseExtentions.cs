@@ -1,35 +1,24 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
+﻿using Microsoft.EntityFrameworkCore;
+using Repository;
 
 namespace Host
 {
     public static class DatabaseExtentions
     {
-        public static IServiceCollection AddOpenIdConnectAuthentication(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddDatabase(this IServiceCollection services, IConfiguration configuration)
         {
-            var audience = configuration.GetValue<string>("oidc:audience");
-            var authorityUri = configuration.GetValue<string>("oidc:authorityUri");
-            if (string.IsNullOrEmpty(authorityUri)) return services;
-
-            services.AddAuthentication(options =>
+            var connectionString = configuration.GetConnectionString("Database");
+            return services.AddDbContext<Database>(options =>
             {
-                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-            .AddJwtBearer(options =>
-            {
-                options.Audience = audience;
-                options.Authority = authorityUri;
-                options.TokenValidationParameters = new TokenValidationParameters
+                if (!string.IsNullOrEmpty(connectionString))
                 {
-                    RequireExpirationTime = true,
-                    ValidateLifetime = true,
-                    RequireSignedTokens = true,
-                    NameClaimType = configuration.GetValue<string>("oidc:claim_types:name") ?? "name",
-                    RoleClaimType = configuration.GetValue<string>("oidc:claim_types:role") ?? "roles"
-                };
+                    options.UseSqlServer(connectionString);
+                }
+                else
+                {
+                    options.UseInMemoryDatabase("Database");
+                }
             });
-
-            return services;
         }
     }
 }

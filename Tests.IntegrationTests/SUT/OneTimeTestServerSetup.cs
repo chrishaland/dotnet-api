@@ -56,7 +56,7 @@ public class OneTimeTestServerSetup
                     .AddScheme<AuthenticationSchemeOptions, MockAuthenticatedUser>("BasicAuthentication", null);
         });
 
-    private static Dictionary<string, string> ConfigurationValues => new Dictionary<string, string>
+    private static Dictionary<string, string> ConfigurationValues => new()
     {
         {"oidc:roles:user", "user"},
         {"oidc:roles:admin", "admin"},

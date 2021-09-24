@@ -1,6 +1,4 @@
 ﻿using Haland.DotNetTrace;
-using Libraries.AMQP;
-using Service;
 
 namespace Host
 {
@@ -12,7 +10,7 @@ namespace Host
             services.AddOpenApiDocumentation();
 
             services.AddAmqpService(Configuration)
-                .AddAmqpSubscriber<TestSubscriber, TestMessage>()
+                //.AddAmqpSubscriber<TestSubscriber, TestMessage>()
             ;
 
             services.AddAuthorizationAndPolicies(Configuration);
