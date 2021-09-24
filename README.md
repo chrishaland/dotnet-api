@@ -1,6 +1,8 @@
 # dotnet-api
 
-[![Build Status](https://chrishaland.visualstudio.com/dotnet-api/_apis/build/status/Build%20pipeline?branchName=main)](https://chrishaland.visualstudio.com/dotnet-api/_build/latest?definitionId=5&branchName=main)
+[![Azure DevOps builds (branch)](https://img.shields.io/azure-devops/build/chrishaland/dotnet-api/5/main)](https://chrishaland.visualstudio.com/dotnet-api/_build/latest?definitionId=5&branchName=main)
+[![Azure DevOps tests (branch)](https://img.shields.io/azure-devops/tests/chrishaland/dotnet-api/5/main)](https://chrishaland.visualstudio.com/dotnet-api/_build/latest?definitionId=5&branchName=main)
+[![Azure DevOps coverage (branch)](https://img.shields.io/azure-devops/coverage/chrishaland/dotnet-api/5/main)](https://chrishaland.visualstudio.com/dotnet-api/_build/latest?definitionId=5&branchName=main)
 
 ## Configuration
 
