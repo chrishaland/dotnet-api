@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace Tests.UnitTests.SUT
+namespace Tests.UnitTests
 {
     public static class TestLoggerFactory
     {

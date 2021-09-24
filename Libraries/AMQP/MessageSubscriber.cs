@@ -46,12 +46,19 @@ namespace Libraries.AMQP
 
                 try
                 {
+                    _logger.LogInformation("Processing message '{MessageId}'", response.NMSMessageId);
+
                     var message = JsonConvert.DeserializeObject<TMessage>(textMessage.Text);
 
-                    _logger.LogInformation("Processing message '{MessageId}'", response.NMSMessageId);
                     await OnMessageReceived(message, stoppingToken);
                     response.Acknowledge();
+
                     _logger.LogInformation("Finished processing message '{MessageId}'", response.NMSMessageId);
+                }
+                catch (JsonReaderException ex)
+                {
+                    _logger.LogWarning(ex, "Unable to deserialize {MessageType} from {MessageId}", _messageQueueName, response.NMSMessageId);
+                    response.Acknowledge();
                 }
                 catch (Exception ex)
                 {
