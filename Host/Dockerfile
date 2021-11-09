@@ -1,7 +1,7 @@
 #See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
 FROM mcr.microsoft.com/dotnet/runtime:6.0 AS vs-containerfastmode
 
-FROM mcr.microsoft.com/dotnet/sdk:6.0.100-preview.7 AS builder
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS builder
 WORKDIR /src
 COPY ["Host/packages.lock.json", "Host/"]
 COPY ["Service/packages.lock.json", "Service/"]
