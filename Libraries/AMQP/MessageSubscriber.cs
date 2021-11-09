@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 
 namespace Libraries.AMQP
 {
-    public abstract class MessageSubscriber<TMessage> : BackgroundService where TMessage : class
+    public abstract class MessageSubscriber<TMessage> : BackgroundService where TMessage : class, new()
     {
         private readonly string _messageQueueName;
 
@@ -51,7 +51,7 @@ namespace Libraries.AMQP
                 {
                     _logger.LogInformation("Processing message '{MessageId}'", response.NMSMessageId);
 
-                    var message = JsonConvert.DeserializeObject<TMessage>(textMessage.Text);
+                    var message = JsonConvert.DeserializeObject<TMessage>(textMessage.Text) ?? new TMessage();
 
                     await OnMessageReceived(message, stoppingToken);
                     response.Acknowledge();
