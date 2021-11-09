@@ -1,4 +1,5 @@
 ﻿using Haland.DotNetTrace;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Host
 {

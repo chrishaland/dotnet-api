@@ -1,4 +1,6 @@
-﻿namespace Microsoft.EntityFrameworkCore
+﻿using System.Threading.Tasks;
+
+namespace Microsoft.EntityFrameworkCore
 {
     public static class EntityFrameworkExtentions
     {
