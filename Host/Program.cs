@@ -1,9 +1,15 @@
+﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Repository;
 using Serilog;
 using Serilog.Events;
+using System;
 using System.Diagnostics;
+using System.Threading.Tasks;
 #if !DEBUG
 using Serilog.Formatting.Compact;
 using System.IO;

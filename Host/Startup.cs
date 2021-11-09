@@ -1,4 +1,7 @@
-﻿namespace Host
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+
+namespace Host
 {
     public partial class Startup
     {

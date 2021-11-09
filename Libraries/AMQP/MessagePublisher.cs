@@ -1,4 +1,5 @@
-﻿using Apache.NMS;
+﻿using System;
+using Apache.NMS;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;

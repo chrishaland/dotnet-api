@@ -1,7 +1,8 @@
-﻿using System.Collections;
-using Apache.NMS;
+﻿using Apache.NMS;
 using Apache.NMS.AMQP;
 using Libraries.AMQP;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Host
 {
