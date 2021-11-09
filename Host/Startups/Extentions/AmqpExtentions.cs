@@ -35,7 +35,7 @@ namespace Host
 
         public interface IAmqpServiceCollection
         {
-            IAmqpServiceCollection AddAmqpSubscriber<TSubscriber, TMessage>() where TSubscriber : MessageSubscriber<TMessage> where TMessage : class;
+            IAmqpServiceCollection AddAmqpSubscriber<TSubscriber, TMessage>() where TSubscriber : MessageSubscriber<TMessage> where TMessage : class, new();
         }
 
         public class AmqpServiceCollection : IAmqpServiceCollection
@@ -51,7 +51,7 @@ namespace Host
 
             public IAmqpServiceCollection AddAmqpSubscriber<TSubscriber, TMessage>()
                 where TSubscriber : MessageSubscriber<TMessage>
-                where TMessage : class
+                where TMessage : class, new()
             {
                 if (!_isAmqpConfigured) return this;
                 _services.AddHostedService<TSubscriber>();
