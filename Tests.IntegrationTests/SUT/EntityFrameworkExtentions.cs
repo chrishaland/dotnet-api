@@ -1,17 +1,14 @@
-﻿using System.Threading.Tasks;
+﻿namespace Microsoft.EntityFrameworkCore;
 
-namespace Microsoft.EntityFrameworkCore
+public static class EntityFrameworkExtentions
 {
-    public static class EntityFrameworkExtentions
+    public static async Task DeleteAllAsync<T>(this DbContext context) where T : class
     {
-        public static async Task DeleteAllAsync<T>(this DbContext context) where T : class
+        foreach (var p in context.Set<T>())
         {
-            foreach (var p in context.Set<T>())
-            {
-                context.Entry(p).State = EntityState.Deleted;
-            }
-
-            await context.SaveChangesAsync();
+            context.Entry(p).State = EntityState.Deleted;
         }
+
+        await context.SaveChangesAsync();
     }
 }

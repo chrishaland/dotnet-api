@@ -1,19 +1,16 @@
-﻿using Microsoft.Extensions.Logging;
+﻿namespace Tests.UnitTests;
 
-namespace Tests.UnitTests
+public static class TestLoggerFactory
 {
-    public static class TestLoggerFactory
+    private static ILoggerFactory _loggerFactory;
+
+    static TestLoggerFactory()
     {
-        private static ILoggerFactory _loggerFactory;
+        _loggerFactory = LoggerFactory.Create(options => options.AddConsole());
+    }
 
-        static TestLoggerFactory()
-        {
-            _loggerFactory = LoggerFactory.Create(options => options.AddConsole());
-        }
-
-        public static ILogger<T> GetLogger<T>()
-        {
-            return _loggerFactory.CreateLogger<T>();
-        }
+    public static ILogger<T> GetLogger<T>()
+    {
+        return _loggerFactory.CreateLogger<T>();
     }
 }

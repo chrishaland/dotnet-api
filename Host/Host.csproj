@@ -7,6 +7,7 @@
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     <UserSecretsId>5b3b9d50-e5d8-44c9-b0df-8447992ae5cb</UserSecretsId>
+    <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>
