@@ -1,16 +1,12 @@
-﻿using System;
-using Microsoft.Extensions.DependencyInjection;
+﻿namespace Tests.UnitTests;
 
-namespace Tests.UnitTests
+public static class TestServiceCollection
 {
-    public static class TestServiceCollection
+    public static IServiceProvider CreateServiceProvider(Action<IServiceCollection> serviceConfiguration)
     {
-        public static IServiceProvider CreateServiceProvider(Action<IServiceCollection> serviceConfiguration)
-        {
-            var services = new ServiceCollection();
-            serviceConfiguration(services);
+        var services = new ServiceCollection();
+        serviceConfiguration(services);
 
-            return services.BuildServiceProvider();
-        }
+        return services.BuildServiceProvider();
     }
 }

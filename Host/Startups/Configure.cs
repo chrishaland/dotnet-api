@@ -2,84 +2,76 @@
 using Microsoft.AspNetCore.HttpOverrides;
 using Haland.DotNetTrace;
 using Serilog;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Hosting;
 
-namespace Host
+namespace Host;
+
+public partial class Startup
 {
-    public partial class Startup
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        app.UseTracing();
+        app.UseForwardedHeaders(new ForwardedHeadersOptions
         {
-            app.UseTracing();
-            app.UseForwardedHeaders(new ForwardedHeadersOptions
-            {
-                ForwardedHeaders = ForwardedHeaders.All
-            });
-            
-            app.UseReferrerPolicy(options => options.NoReferrer());
+            ForwardedHeaders = ForwardedHeaders.All
+        });
 
-            app.UseRedirectValidation(options =>
-            {
-                options.AllowSameHostRedirectsToHttps();
-                
-                var authorityUri = Configuration.GetValue<string>("oidc:authorityUri");
-                if (string.IsNullOrEmpty(authorityUri)) return;
-                options.AllowedDestinations(authorityUri);
-            });
+        app.UseReferrerPolicy(options => options.NoReferrer());
 
-            app.UseXContentTypeOptions();
-            app.UseXRobotsTag(options => options.NoIndex().NoFollow());
+        app.UseRedirectValidation(options =>
+        {
+            options.AllowSameHostRedirectsToHttps();
 
-            if (!env.IsDevelopment())
-            {
-                app.UseHsts();
-                app.UseHttpsRedirection();
-            }
+            var authorityUri = Configuration.GetValue<string>("oidc:authorityUri");
+            if (string.IsNullOrEmpty(authorityUri)) return;
+            options.AllowedDestinations(authorityUri);
+        });
 
-            app.UseExceptionHandler(app =>
-            {
-                app.Run(async context =>
-                {
-                    var logger = context.RequestServices.GetRequiredService<ILogger<Startup>>();
-                    var exceptionHandler = context.Features.Get<IExceptionHandlerFeature>();
+        app.UseXContentTypeOptions();
+        app.UseXRobotsTag(options => options.NoIndex().NoFollow());
 
-                    await Task.CompletedTask;
-                    logger.LogError(exceptionHandler?.Error, "Application error:");
-                });
-            });
-
-            app.UseSwagger();
-            app.UseSwaggerUI(options =>
-            {
-                options.SwaggerEndpoint("/swagger/v1/swagger.json", "API");
-                options.RoutePrefix = "docs";
-            });
-
-            app.UseCsp(options =>
-            {
-                options.BlockAllMixedContent();
-                options.StyleSources(s => s.Self());
-                options.FontSources(s => s.Self());
-                options.FormActions(s => s.Self());
-                options.FrameAncestors(s => s.Self());
-                options.ImageSources(s => s.Self());
-                options.ScriptSources(s => s.Self());
-            });
-
-            app.UseSerilogRequestLogging();
-            app.UseRouting();
-            app.UseAuthentication();
-            app.UseAuthorization();
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+        if (!env.IsDevelopment())
+        {
+            app.UseHsts();
+            app.UseHttpsRedirection();
         }
+
+        app.UseExceptionHandler(app =>
+        {
+            app.Run(async context =>
+            {
+                var logger = context.RequestServices.GetRequiredService<ILogger<Startup>>();
+                var exceptionHandler = context.Features.Get<IExceptionHandlerFeature>();
+
+                await Task.CompletedTask;
+                logger.LogError(exceptionHandler?.Error, "Application error:");
+            });
+        });
+
+        app.UseSwagger();
+        app.UseSwaggerUI(options =>
+        {
+            options.SwaggerEndpoint("/swagger/v1/swagger.json", "API");
+            options.RoutePrefix = "docs";
+        });
+
+        app.UseCsp(options =>
+        {
+            options.BlockAllMixedContent();
+            options.StyleSources(s => s.Self());
+            options.FontSources(s => s.Self());
+            options.FormActions(s => s.Self());
+            options.FrameAncestors(s => s.Self());
+            options.ImageSources(s => s.Self());
+            options.ScriptSources(s => s.Self());
+        });
+
+        app.UseSerilogRequestLogging();
+        app.UseRouting();
+        app.UseAuthentication();
+        app.UseAuthorization();
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapControllers();
+        });
     }
 }

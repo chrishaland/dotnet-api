@@ -1,40 +1,37 @@
 ﻿using Newtonsoft.Json;
 using Repository;
-using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace Tests.IntegrationTests
+namespace Tests.IntegrationTests;
+
+public static class SUT
 {
-    public static class SUT
+    internal static Database Database => OneTimeTestServerSetup.Database;
+
+    internal static async Task<(HttpResponseMessage message, T? content)> SendHttpRequest<T>(HttpRequestMessage request, object? data = null) where T : class
     {
-        internal static Database Database => OneTimeTestServerSetup.Database;
+        var (response, contentString) = await SendHttpRequest(request, data);
 
-        internal static async Task<(HttpResponseMessage message, T? content)> SendHttpRequest<T>(HttpRequestMessage request, object? data = null) where T : class
+        T? content = null;
+        if (!string.IsNullOrEmpty(contentString))
         {
-            var (response, contentString) = await SendHttpRequest(request, data);
-
-            T? content = null;
-            if (!string.IsNullOrEmpty(contentString))
-            {
-                content = JsonConvert.DeserializeObject<T>(contentString);
-            }
-
-            return (response, content);
+            content = JsonConvert.DeserializeObject<T>(contentString);
         }
 
-        internal static async Task<(HttpResponseMessage message, string contentString)> SendHttpRequest(HttpRequestMessage request, object? data = null)
+        return (response, content);
+    }
+
+    internal static async Task<(HttpResponseMessage message, string contentString)> SendHttpRequest(HttpRequestMessage request, object? data = null)
+    {
+        if (data != null)
         {
-            if (data != null)
-            {
-                var json = JsonConvert.SerializeObject(data);
-                request.Content = new StringContent(json, Encoding.UTF8, "application/json");
-            }
-
-            var response = await OneTimeTestServerSetup.Client.SendAsync(request);
-            var contentString = await response.Content.ReadAsStringAsync();
-
-            return (response, contentString);
+            var json = JsonConvert.SerializeObject(data);
+            request.Content = new StringContent(json, Encoding.UTF8, "application/json");
         }
+
+        var response = await OneTimeTestServerSetup.Client.SendAsync(request);
+        var contentString = await response.Content.ReadAsStringAsync();
+
+        return (response, contentString);
     }
 }

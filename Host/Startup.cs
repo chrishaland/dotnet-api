@@ -1,17 +1,13 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
+﻿namespace Host;
 
-namespace Host
+public partial class Startup
 {
-    public partial class Startup
-    {
-        public IConfiguration Configuration { get; }
-        public IWebHostEnvironment Environment { get; }
+    public IConfiguration Configuration { get; }
+    public IWebHostEnvironment Environment { get; }
 
-        public Startup(IConfiguration configuration, IWebHostEnvironment environment)
-        {
-            Configuration = configuration;
-            Environment = environment;
-        }
+    public Startup(IConfiguration configuration, IWebHostEnvironment environment)
+    {
+        Configuration = configuration;
+        Environment = environment;
     }
 }

@@ -1,24 +1,22 @@
 ﻿using Haland.DotNetTrace;
-using Microsoft.Extensions.DependencyInjection;
 
-namespace Host
+namespace Host;
+
+public partial class Startup
 {
-    public partial class Startup
+    public void ConfigureServices(IServiceCollection services)
     {
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddDatabase(Configuration);
-            services.AddOpenApiDocumentation();
+        services.AddDatabase(Configuration);
+        services.AddOpenApiDocumentation();
 
-            services.AddAmqpService(Configuration)
-                //.AddAmqpSubscriber<TestSubscriber, TestMessage>()
-            ;
+        services.AddAmqpService(Configuration)
+        //.AddAmqpSubscriber<TestSubscriber, TestMessage>()
+        ;
 
-            services.AddAuthorizationAndPolicies(Configuration);
-            services.AddOpenIdConnectAuthentication(Configuration);
+        services.AddAuthorizationAndPolicies(Configuration);
+        services.AddOpenIdConnectAuthentication(Configuration);
 
-            services.AddTracing();
-            services.AddControllers().AddNewtonsoftJson();
-        }
+        services.AddTracing();
+        services.AddControllers().AddNewtonsoftJson();
     }
 }
