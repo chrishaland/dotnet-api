@@ -122,11 +122,11 @@
       },
       "Haland.DotNetTrace": {
         "type": "Transitive",
-        "resolved": "1.0.2-rc1",
-        "contentHash": "mka8U0vIKEz4839onj7OI63jQ73l4ypVFuC0jVs1qFafnwbC3Pp/mI6dCeVSJFL6bSjahJbDVj2nFFdgMhElug==",
+        "resolved": "1.0.2",
+        "contentHash": "evERSl+ZY3Lm1Fovq4pgAzG6njGME9X/6p5YQPpUcKws6RoE7Bi1Tei1ld5gkiSMi0C26GD3KWBxBZDFa3hU4w==",
         "dependencies": {
           "Microsoft.AspNetCore.Http": "2.2.2",
-          "Microsoft.Extensions.Http": "6.0.0-preview.7.21377.19"
+          "Microsoft.Extensions.Http": "6.0.0"
         }
       },
       "Microsoft.AspNetCore.Authentication.Abstractions": {
@@ -482,13 +482,13 @@
       },
       "Microsoft.Extensions.Http": {
         "type": "Transitive",
-        "resolved": "6.0.0-preview.7.21377.19",
-        "contentHash": "65TeeyQhjukC4WH+tAsav3A39D49r1zEcCgzfCJbqBoGDY30A02k4W1G5r77TOnCLuqiJkPiPd4y9DpJ+gkrlg==",
+        "resolved": "6.0.0",
+        "contentHash": "15+pa2G0bAMHbHewaQIdr/y6ag2H3yh4rd9hTXavtWDzQBkvpe2RMqFg8BxDpcQWssmjmBApGPcw93QRz6YcMg==",
         "dependencies": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0-preview.7.21377.19",
-          "Microsoft.Extensions.Logging": "6.0.0-preview.7.21377.19",
-          "Microsoft.Extensions.Logging.Abstractions": "6.0.0-preview.7.21377.19",
-          "Microsoft.Extensions.Options": "6.0.0-preview.7.21377.19"
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Logging": "6.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Options": "6.0.0"
         }
       },
       "Microsoft.Extensions.Logging": {
@@ -631,8 +631,8 @@
       },
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
         "type": "Transitive",
-        "resolved": "1.11.1",
-        "contentHash": "1jHxWlSi6/ryWODk6SUjsZPHk/BdsucxqhIi1szEzwc84e8nvZWF45qRXcT2gWPISJ3Ybbyg2LsNG6yX8r7VuA=="
+        "resolved": "1.14.0",
+        "contentHash": "yORzATlNmCp4kEwkxznLZ3maTaUJc5yTcu3aPufY8Tq4141/bRRWsa91u8I24MR3BTCCJlZO98xuQWB4arlKCw=="
       },
       "Microsoft.Win32.Registry": {
         "type": "Transitive",
@@ -1291,12 +1291,12 @@
       "host": {
         "type": "Project",
         "dependencies": {
-          "Haland.DotNetTrace": "1.0.2-rc1",
+          "Haland.DotNetTrace": "1.0.2",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.0",
           "Microsoft.EntityFrameworkCore": "6.0.0",
           "Microsoft.EntityFrameworkCore.InMemory": "6.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.0",
-          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.11.1",
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.14.0",
           "NWebsec.AspNetCore.Middleware": "3.0.0",
           "Repository": "1.0.0",
           "Serilog.AspNetCore": "4.1.0",

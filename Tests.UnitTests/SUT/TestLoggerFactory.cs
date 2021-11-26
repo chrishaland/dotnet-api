@@ -2,7 +2,7 @@
 
 public static class TestLoggerFactory
 {
-    private static ILoggerFactory _loggerFactory;
+    private static readonly ILoggerFactory _loggerFactory;
 
     static TestLoggerFactory()
     {
