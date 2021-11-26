@@ -78,7 +78,7 @@ public class Program
         if (string.IsNullOrEmpty(configuration.GetConnectionString("Database"))) return;
 
         _logger.Information("Migrating database");
-        var database = scope.ServiceProvider.GetRequiredService<Database>();
+        var database = scope.ServiceProvider.GetRequiredService<DatabaseContext>();
         await database.Database.MigrateAsync();
         _logger.Information("Migrated database");
     }

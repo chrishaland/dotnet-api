@@ -21,16 +21,24 @@ Go to `App registrations` and register a new application:
 Once created, make sure the following settings are updated / correct:
 
 * Authentication - Allow public client flows
-  * Yes
+  * No
 * Authentication - Implicit grant and hybrid flows
   * All unchecked
-* Token configuration
-  * Add group claim, with value `Group ID` and `Emit groups as role claims` as checked
-    * Alternativly, use app roles
+* App roles
+  * `user`
+  * `admin`
 
 ## Development
 
 ### Adding database migrations
+
+Ensure you have the `dotnet-ef` tool installed:
+
+```
+dotnet tool install --global dotnet-ef
+```
+
+Add a code first database migration:
 
 ```
 $env:ASPNETCORE_ENVIRONMENT = "Development"
@@ -41,7 +49,7 @@ dotnet ef migrations add "<migration_name>" --startup-project Host --project Rep
 
 ```
 # Database connection
-dotnet user-secrets set "ConnectionStrings:Database" "Server=localhost;Database=Api;Integrated Security=true;MultipleActiveResultSets=true" --project Host
+dotnet user-secrets set "ConnectionStrings:DatabaseContext" "Server=localhost;Database=Api;Integrated Security=true;MultipleActiveResultSets=true" --project Host
 
 # Authentication
 dotnet user-secrets set "oidc:audience" "<audience>" --project Host

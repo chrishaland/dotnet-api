@@ -3,9 +3,9 @@ using Microsoft.Extensions.Logging;
 
 namespace Repository
 {
-    public class Database : DbContext
+    public class DatabaseContext : DbContext
     {
-        public Database(DbContextOptions options) : base(options)
+        public DatabaseContext(DbContextOptions options) : base(options)
         {
         }
 
