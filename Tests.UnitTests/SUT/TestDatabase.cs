@@ -3,9 +3,9 @@ using Repository;
 
 namespace Tests.UnitTests;
 
-public class TestDatabase : Database
+public class TestDatabase : DatabaseContext
 {
-    public TestDatabase() : base(new DbContextOptionsBuilder<Database>().UseInMemoryDatabase("Database").Options)
+    public TestDatabase() : base(new DbContextOptionsBuilder<DatabaseContext>().UseInMemoryDatabase("Database").Options)
     {
     }
 }

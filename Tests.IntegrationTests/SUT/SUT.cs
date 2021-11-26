@@ -6,7 +6,7 @@ namespace Tests.IntegrationTests;
 
 public static class SUT
 {
-    internal static Database Database => OneTimeTestServerSetup.Database;
+    internal static DatabaseContext Database => OneTimeTestServerSetup.Database;
 
     internal static async Task<(HttpResponseMessage message, T? content)> SendHttpRequest<T>(HttpRequestMessage request, object? data = null) where T : class
     {

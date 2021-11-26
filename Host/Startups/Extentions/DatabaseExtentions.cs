@@ -7,7 +7,7 @@ public static class DatabaseExtentions
     public static IServiceCollection AddDatabase(this IServiceCollection services, IConfiguration configuration)
     {
         var connectionString = configuration.GetConnectionString("Database");
-        return services.AddDbContext<Database>(options =>
+        return services.AddDbContext<DatabaseContext>(options =>
         {
             if (!string.IsNullOrEmpty(connectionString))
             {

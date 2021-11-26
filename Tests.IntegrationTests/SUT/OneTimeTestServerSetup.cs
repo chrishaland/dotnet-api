@@ -13,7 +13,7 @@ public class OneTimeTestServerSetup
 {
     private static readonly TestServer _testServer = new(TestServerBuilder);
     internal static HttpClient Client = new();
-    internal static Database Database = new(new DbContextOptionsBuilder<Database>().Options);
+    internal static DatabaseContext Database = new(new DbContextOptionsBuilder<DatabaseContext>().Options);
 
     [OneTimeSetUp]
     public async Task Before()
@@ -22,7 +22,7 @@ public class OneTimeTestServerSetup
 
         await _testServer.Host.StartAsync();
         Client = _testServer.CreateClient();
-        Database = _testServer.Host.Services.GetRequiredService<Database>();
+        Database = _testServer.Host.Services.GetRequiredService<DatabaseContext>();
     }
 
     [OneTimeTearDown]
@@ -47,7 +47,7 @@ public class OneTimeTestServerSetup
         .UseStartup<Host.Startup>()
         .ConfigureTestServices(services =>
         {
-            services.AddDbContext<Database>(options =>
+            services.AddDbContext<DatabaseContext>(options =>
             {
                 options.UseInMemoryDatabase("Database");
             });
