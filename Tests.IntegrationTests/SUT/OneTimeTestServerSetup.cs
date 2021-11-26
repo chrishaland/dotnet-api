@@ -9,7 +9,9 @@ using Serilog;
 using Tests.IntegrationTests;
 
 [SetUpFixture]
+#pragma warning disable CA1050 // Declare types in namespaces
 public class OneTimeTestServerSetup
+#pragma warning restore CA1050 // Declare types in namespaces
 {
     private static readonly TestServer _testServer = new(TestServerBuilder);
     internal static HttpClient Client = new();
