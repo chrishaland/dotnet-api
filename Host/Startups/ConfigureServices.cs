@@ -17,6 +17,7 @@ public partial class Startup
         services.AddOpenIdConnectAuthentication(Configuration);
 
         services.AddTracing();
+        services.AddHealthChecks();
         services.AddControllers().AddNewtonsoftJson();
     }
 }
