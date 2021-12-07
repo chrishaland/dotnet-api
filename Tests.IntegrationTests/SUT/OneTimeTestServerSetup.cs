@@ -21,6 +21,8 @@ public class OneTimeTestServerSetup
     public async Task Before()
     {
         Environment.SetEnvironmentVariable("ASPNETCORE_ENVIRONMENT", "Development");
+        Environment.SetEnvironmentVariable("ASPNETCORE_APIPORT", "*");
+        Environment.SetEnvironmentVariable("ASPNETCORE_MANAGEMENTPORT", "*");
 
         await _testServer.Host.StartAsync();
         Client = _testServer.CreateClient();

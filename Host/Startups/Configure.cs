@@ -71,7 +71,16 @@ public partial class Startup
         app.UseAuthorization();
         app.UseEndpoints(endpoints =>
         {
-            endpoints.MapControllers();
+            endpoints.MapHealthChecks("/health/ready")
+                .AllowAnonymous()
+                .RequireHost($"*:{Configuration.GetValue<string>("MANAGEMENTPORT")}");
+
+            endpoints.MapHealthChecks("/health/live")
+                .AllowAnonymous()
+                .RequireHost($"*:{Configuration.GetValue<string>("MANAGEMENTPORT")}");
+
+            endpoints.MapControllers()
+                .RequireHost($"*:{Configuration.GetValue<string>("APIPORT")}");
         });
     }
 }

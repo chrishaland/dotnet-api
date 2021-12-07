@@ -27,7 +27,9 @@ RUN dotnet publish "Host/Host.csproj" \
 	--no-restore
 
 FROM mcr.microsoft.com/dotnet/runtime:6.0
-ENV ASPNETCORE_URLS="http://0.0.0.0:8080"
+ENV ASPNETCORE_URLS="http://0.0.0.0:8080;http://0.0.0.0:8081"
+ENV ASPNETCORE_APIPORT="8080"
+ENV ASPNETCORE_MANAGEMENTPORT="8081"
 EXPOSE 8080
 WORKDIR /app
 RUN mkdir ./configmap && chown 1000:1000 ./configmap
