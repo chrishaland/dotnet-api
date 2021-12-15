@@ -906,8 +906,11 @@
       },
       "System.Text.Encodings.Web": {
         "type": "Transitive",
-        "resolved": "4.5.0",
-        "contentHash": "Xg4G4Indi4dqP1iuAiMSwpiWS54ZghzR644OtsRCm/m/lBMG8dUBhLVN7hLm8NNrNTR+iGbshCPTwrvxZPlm4g=="
+        "resolved": "6.0.0",
+        "contentHash": "Vg8eB5Tawm1IFqj4TVK1czJX89rhFxJo9ELqc/Eiq0eXy13RK00eubyU6TJE6y+GQXjyV5gSfiewDUZjQgSE0w==",
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        }
       },
       "System.Threading": {
         "type": "Transitive",
@@ -952,7 +955,8 @@
           "Apache.NMS.AMQP": "2.0.0",
           "Microsoft.AspNetCore.Mvc.Core": "2.2.5",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "6.0.1",
-          "Repository": "1.0.0"
+          "Repository": "1.0.0",
+          "System.Text.Encodings.Web": "6.0.0"
         }
       },
       "repository": {

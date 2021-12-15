@@ -1234,7 +1234,8 @@
           "Apache.NMS.AMQP": "2.0.0",
           "Microsoft.AspNetCore.Mvc.Core": "2.2.5",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "6.0.1",
-          "Repository": "1.0.0"
+          "Repository": "1.0.0",
+          "System.Text.Encodings.Web": "6.0.0"
         }
       },
       "repository": {
