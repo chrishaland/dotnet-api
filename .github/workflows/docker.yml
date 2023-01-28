@@ -1,0 +1,21 @@
+name: Docker
+run-name: Docker
+on: 
+  pull_request:
+  push:
+    branches:
+      - 'main'
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup
+        uses: docker/setup-buildx-action@v2
+      - name: Build
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: ./Host/Dockerfile
+          push: false
